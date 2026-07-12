@@ -51,10 +51,8 @@ All SPEC §9 acceptance criteria for Phases 0–3 are now fully closed.
 
 1. ~~Classifier golden labels~~ ✅ closed, see above.
 2. ~~Judge golden scores~~ ✅ closed, see above.
-3. REJECTED policy: v0 counts provider rejections against completion (Otto:
-   25%). Evidence cuts both ways — sampled rejections include obvious probe
-   spam (e.g. a "trinity-cross-validation-…" swap with amount 0), suggesting
-   an accepted-jobs-only completion + separate acceptance-rate metric may be
-   fairer. Changing this alters the headline composite; operator call.
+3. ~~REJECTED policy~~ ✅ **decided (operator, 2026-07-12): keep v0** —
+   provider rejections count against completion. Rationale trade-off (probe
+   spam in rejections) noted above for future rubric iterations.
 4. Optional: raise `MAX_JOBS_PER_STATUS` (src/pull.py) and re-pull for fuller
    history; widen `window_days` if thin recent activity persists.
