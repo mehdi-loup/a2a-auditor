@@ -73,7 +73,8 @@ def main() -> None:
         pairs = [(sum(s) / len(s), ops[j]) for j, s in per_item.items()
                  if j in ops and all(x is not None for x in s)]
         df = pd.DataFrame(pairs, columns=["judge", "operator"])
-        rho = df["judge"].corr(df["operator"], method="spearman")
+        # Spearman = Pearson on average ranks (avoids a scipy dependency)
+        rho = df["judge"].rank().corr(df["operator"].rank())
         print(f"calibration: Spearman={rho:.3f} over {len(pairs)} items "
               f"(require >= 0.7)")
         if rho < 0.7:

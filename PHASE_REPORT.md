@@ -35,13 +35,22 @@ Remaining open items are operator-side (golden labels ×2, REJECTED policy).
 
 ≈ **$0.32 of $5.00** (judge calls; everything cached — re-runs free).
 
+## Golden-set calibration — CLOSED (2026-07-12)
+
+Operator reviewed both sets (labeled the 9 flagged classifier rows directly,
+accepted proposals on the clear-cut rest; overrode 4 of 20 judge scores).
+
+| Gate | Requirement | Result |
+|---|---|---|
+| Classifier vs golden labels | ≥ 90% | **100%** (50/50) |
+| Judge vs operator scores | Spearman ≥ 0.7 | **0.783** (20 items) |
+
+All SPEC §9 acceptance criteria for Phases 0–3 are now fully closed.
+
 ## Open operator items (close-out list)
 
-1. Classifier golden labels — golden/classifier_candidates.csv
-   (`proposed_label` prefilled, 9 borderline rows flagged) → `make test-census`.
-2. Judge golden scores — golden/judge_candidates.csv (`proposed_score`
-   prefilled) → `make test-pipeline` (Spearman ≥ 0.7 gate; rubric iteration if
-   it fails).
+1. ~~Classifier golden labels~~ ✅ closed, see above.
+2. ~~Judge golden scores~~ ✅ closed, see above.
 3. REJECTED policy: v0 counts provider rejections against completion (Otto:
    25%). Evidence cuts both ways — sampled rejections include obvious probe
    spam (e.g. a "trinity-cross-validation-…" swap with amount 0), suggesting
