@@ -1,0 +1,31 @@
+# Pipeline configuration. Any change to this file changes the config hash
+# reported in assessment provenance blocks.
+
+seed: 20260703
+
+# Sampling window (days) for assessments (SPEC §4 Phase 2)
+window_days: 60
+
+# Regime A thresholds (SPEC §2)
+regime_a:
+  max_price_usd: 50
+  max_duration_seconds: 600
+
+# Scoring v0 weights (SPEC §4 Phase 2) — provisional
+weights:
+  completion: 0.35
+  conformance: 0.30
+  evidence: 0.20
+  latency: 0.15
+
+# LLM judge (SPEC §7)
+judge:
+  model: claude-sonnet-4-6
+  temperature: 0
+  # Lowered from SPEC default $10: account balance is $5 (operator, 2026-07-03)
+  budget_usd_per_run: 3.0
+
+# Default assessment target (SPEC §8 default was Ethy AI — not present in the
+# ACP registry; operator selected Arbus, then Otto AI after Arbus proved
+# inactive in the 60-day window; 2026-07-03)
+default_agent: otto
